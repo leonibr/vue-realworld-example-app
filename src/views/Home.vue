@@ -63,6 +63,7 @@ import RwvTag from "@/components/VTag";
 import { FETCH_TAGS } from "@/store/actions.type";
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "home",
   components: {
     RwvTag

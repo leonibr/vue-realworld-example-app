@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     ...mapState({
-      errors: state => state.auth.errors
+      errors: (state) => state.auth.errors
     })
   }
 };
