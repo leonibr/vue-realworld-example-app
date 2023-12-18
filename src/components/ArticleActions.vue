@@ -93,7 +93,7 @@ export default {
         await this.$store.dispatch(ARTICLE_DELETE, this.article.slug);
         this.$router.push("/");
       } catch (err) {
-        console.error(err);
+        throw new Error(err);
       }
     }
   }

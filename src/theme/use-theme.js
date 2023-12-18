@@ -12,7 +12,7 @@ const setRootStyles = async (theme) => {
   document.querySelector("#vendor-css").innerHTML = styles;
 };
 
-export function useTheme() {
+export default function useTheme() {
   const setup = () => {
     watch(theme, () => {
       setRootStyles(theme);

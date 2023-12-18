@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useTheme } from "@/theme";
+import useTheme from "@/theme/use-theme";
 const { theme } = useTheme();
 
 const router = createRouter({
@@ -23,9 +23,24 @@ const router = createRouter({
           path: "tag/:tag",
           name: "home-tag",
           component: () => import("@/views/HomeTag.vue")
+        },
+        {
+          path: "/bootstrap",
+          meta: {
+            theme: "bootstrap"
+          },
+          component: () => import("@/views/ThemeView.vue")
+        },
+        {
+          path: "/vuetify",
+          meta: {
+            theme: "vuetify"
+          },
+          component: () => import("@/views/ThemeView.vue")
         }
       ]
     },
+
     {
       name: "login",
       path: "/login",

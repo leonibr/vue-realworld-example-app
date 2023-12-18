@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import RwvArticleList from "@/components/ArticleList";
+import RwvArticleList from "@/components/ArticleList.vue";
 
 export default {
   name: "RwvProfileFavorited",

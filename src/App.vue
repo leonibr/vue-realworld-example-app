@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <RwvHeader />
     <router-view></router-view>
     <RwvFooter />
@@ -9,6 +9,10 @@
 <script>
 import RwvHeader from "@/components/TheHeader.vue";
 import RwvFooter from "@/components/TheFooter.vue";
+import useTheme from "@/theme/use-theme.js";
+const { setup } = useTheme();
+
+setup();
 
 export default {
   name: "App",

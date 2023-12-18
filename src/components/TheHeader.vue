@@ -6,6 +6,12 @@
       </router-link>
       <ul v-if="!isAuthenticated" class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
+          <router-link to="/home/bootstrap">Go to BootstapVue</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/home/vuetify">Go to Vuetify</router-link>
+        </li>
+        <li class="nav-item">
           <router-link
             class="nav-link"
             active-class="active"

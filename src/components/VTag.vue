@@ -1,7 +1,7 @@
 <template>
-  <router-link :to="homeRoute" :class="className">
-    <div v-text="name"></div>
-  </router-link>
+  <router-link :to="homeRoute" :class="className"
+    ><span v-text="name"></span
+  ></router-link>
 </template>
 
 <script>
@@ -18,7 +18,9 @@ export default {
     }
   },
   computed: {
-    homeRoute: () => ({ name: "home-tag", params: { tag: name } })
+    homeRoute() {
+      return { name: "home-tag", params: { tag: this.name } };
+    }
   }
 };
 </script>

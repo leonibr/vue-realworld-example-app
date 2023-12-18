@@ -47,8 +47,11 @@
           <div class="sidebar">
             <p>Popular Tags</p>
             <div class="tag-list">
-              <RwvTag v-for="(tag, index) in tags" :key="index" :name="tag">
-              </RwvTag>
+              <RwvTag
+                v-for="(tagName, index) in tags"
+                :key="index"
+                :name="tagName"
+              ></RwvTag>
             </div>
           </div>
         </div>
@@ -68,14 +71,14 @@ export default {
   components: {
     RwvTag
   },
-  mounted() {
-    this.$store.dispatch(FETCH_TAGS);
-  },
   computed: {
     ...mapGetters(["isAuthenticated", "tags"]),
     tag() {
       return this.$route.params.tag;
     }
+  },
+  mounted() {
+    this.$store.dispatch(FETCH_TAGS);
   }
 };
 </script>
