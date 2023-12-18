@@ -19,8 +19,14 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Pagination",
   props: {
-    pages: { type: Array, required: true },
-    currentPage: { type: Number, required: true }
+    pages: {
+      type: Array,
+      required: true
+    },
+    currentPage: {
+      type: Number,
+      required: true
+    }
   },
   methods: {
     changePage(goToPage) {
@@ -28,7 +34,10 @@ export default {
       this.$emit("update:currentPage", goToPage);
     },
     paginationClass(page) {
-      return { "page-item": true, active: this.currentPage === page };
+      return {
+        "page-item": true,
+        active: this.currentPage === page
+      };
     }
   }
 };

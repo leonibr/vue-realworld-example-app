@@ -1,15 +1,18 @@
 <template>
   <div>
     <div v-if="isLoading" class="article-preview">Loading articles...</div>
+
     <div v-else>
       <div v-if="articles.length === 0" class="article-preview">
         No articles are here... yet.
       </div>
+
       <RwvArticlePreview
         v-for="(article, index) in articles"
         :article="article"
         :key="article.title + index"
       />
+
       <VPagination :pages="pages" :currentPage.sync="currentPage" />
     </div>
   </div>
@@ -20,41 +23,18 @@ import { mapGetters } from "vuex";
 import RwvArticlePreview from "./VArticlePreview";
 import VPagination from "./VPagination";
 import { FETCH_ARTICLES } from "../store/actions.type";
-
 export default {
   name: "RwvArticleList",
-  components: {
-    RwvArticlePreview,
-    VPagination
-  },
+  components: { RwvArticlePreview, VPagination },
   props: {
-    type: {
-      type: String,
-      required: false,
-      default: "all"
-    },
-    author: {
-      type: String,
-      required: false
-    },
-    tag: {
-      type: String,
-      required: false
-    },
-    favorited: {
-      type: String,
-      required: false
-    },
-    itemsPerPage: {
-      type: Number,
-      required: false,
-      default: 10
-    }
+    type: { type: String, required: false, default: "all" },
+    author: { type: String, required: false },
+    tag: { type: String, required: false },
+    favorited: { type: String, required: false },
+    itemsPerPage: { type: Number, required: false, default: 10 }
   },
   data() {
-    return {
-      currentPage: 1
-    };
+    return { currentPage: 1 };
   },
   computed: {
     listConfig() {
@@ -72,10 +52,7 @@ export default {
       if (this.favorited) {
         filters.favorited = this.favorited;
       }
-      return {
-        type,
-        filters
-      };
+      return { type, filters };
     },
     pages() {
       if (this.isLoading || this.articlesCount <= this.itemsPerPage) {
