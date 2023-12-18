@@ -39,9 +39,9 @@ const vuetify = createVuetify({
   directives
 });
 
+app.use(vuetify);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 app.use(router);
-app.use(vuetify);
 
 app.mount("#app");

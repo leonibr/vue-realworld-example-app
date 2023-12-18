@@ -26,17 +26,19 @@ const router = createRouter({
         },
         {
           path: "/bootstrap",
+          name: "bootstrap",
           meta: {
             theme: "bootstrap"
           },
-          component: () => import("@/views/ThemeView.vue")
+          component: () => import("@/views/Bootstrap.vue")
         },
         {
           path: "/vuetify",
+          name: "vuetify",
           meta: {
             theme: "vuetify"
           },
-          component: () => import("@/views/ThemeView.vue")
+          component: () => import("@/views/Vuetify.vue")
         }
       ]
     },
