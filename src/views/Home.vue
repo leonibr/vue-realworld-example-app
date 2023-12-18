@@ -30,7 +30,7 @@
                   Global Feed
                 </router-link>
               </li>
-              <li class="nav-item" v-if="tag">
+              <li v-if="tag" class="nav-item">
                 <router-link
                   :to="{ name: 'home-tag', params: { tag } }"
                   class="nav-link"
@@ -47,7 +47,7 @@
           <div class="sidebar">
             <p>Popular Tags</p>
             <div class="tag-list">
-              <RwvTag v-for="(tag, index) in tags" :name="tag" :key="index">
+              <RwvTag v-for="(tag, index) in tags" :key="index" :name="tag">
               </RwvTag>
             </div>
           </div>
@@ -59,12 +59,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import RwvTag from "@/components/VTag";
+import RwvTag from "@/components/VTag.vue";
 import { FETCH_TAGS } from "@/store/actions.type";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "home",
+  name: "Home",
   components: {
     RwvTag
   },

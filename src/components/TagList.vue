@@ -1,9 +1,9 @@
 <template>
   <ul class="tag-list">
     <li
-      class="tag-default tag-pill tag-outline"
       v-for="(tag, index) of tags"
       :key="index"
+      class="tag-default tag-pill tag-outline"
     >
       <span v-text="tag" />
     </li>

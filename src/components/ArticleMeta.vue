@@ -12,21 +12,21 @@
       >
         {{ article.author.username }}
       </router-link>
-      <span class="date">{{ article.createdAt | date }}</span>
+      <span class="date">{{ date(article.createdAt) }}</span>
     </div>
     <rwv-article-actions
       v-if="actions"
       :article="article"
-      :canModify="isCurrentUser()"
+      :can-modify="isCurrentUser()"
     ></rwv-article-actions>
     <button
       v-else
       class="btn btn-sm pull-xs-right"
-      @click="toggleFavorite"
       :class="{
         'btn-primary': article.favorited,
         'btn-outline-primary': !article.favorited
       }"
+      @click="toggleFavorite"
     >
       <i class="ion-heart"></i>
       <span class="counter"> {{ article.favoritesCount }} </span>
@@ -36,7 +36,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import RwvArticleActions from "@/components/ArticleActions";
+import RwvArticleActions from "@/components/ArticleActions.vue";
+import date from "@/common/date.filter";
 import { FAVORITE_ADD, FAVORITE_REMOVE } from "@/store/actions.type";
 
 export default {
@@ -54,6 +55,9 @@ export default {
       required: false,
       default: false
     }
+  },
+  data() {
+    return { date };
   },
   computed: {
     ...mapGetters(["currentUser", "isAuthenticated"])

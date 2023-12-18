@@ -17,16 +17,16 @@
             </div>
             <div v-else>
               <button
-                class="btn btn-sm btn-secondary action-btn"
                 v-if="profile.following"
+                class="btn btn-sm btn-secondary action-btn"
                 @click.prevent="unfollow()"
               >
                 <i class="ion-plus-round"></i> &nbsp;Unfollow
                 {{ profile.username }}
               </button>
               <button
-                class="btn btn-sm btn-outline-secondary action-btn"
                 v-if="!profile.following"
+                class="btn btn-sm btn-outline-secondary action-btn"
                 @click.prevent="follow()"
               >
                 <i class="ion-plus-round"></i> &nbsp;Follow

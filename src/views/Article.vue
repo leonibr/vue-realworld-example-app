@@ -14,7 +14,7 @@
             <li v-for="(tag, index) of article.tagList" :key="tag + index">
               <RwvTag
                 :name="tag"
-                className="tag-default tag-pill tag-outline"
+                class-name="tag-default tag-pill tag-outline"
               ></RwvTag>
             </li>
           </ul>
@@ -29,7 +29,7 @@
           <RwvCommentEditor
             v-if="isAuthenticated"
             :slug="slug"
-            :userImage="currentUser.image"
+            :user-image="currentUser.image"
           >
           </RwvCommentEditor>
           <p v-else>
@@ -40,9 +40,9 @@
           </p>
           <RwvComment
             v-for="(comment, index) in comments"
+            :key="index"
             :slug="slug"
             :comment="comment"
-            :key="index"
           >
           </RwvComment>
         </div>
@@ -55,20 +55,14 @@
 import { mapGetters } from "vuex";
 import marked from "marked";
 import store from "@/store";
-import RwvArticleMeta from "@/components/ArticleMeta";
-import RwvComment from "@/components/Comment";
-import RwvCommentEditor from "@/components/CommentEditor";
-import RwvTag from "@/components/VTag";
+import RwvArticleMeta from "@/components/ArticleMeta.vue";
+import RwvComment from "@/components/Comment.vue";
+import RwvCommentEditor from "@/components/CommentEditor.vue";
+import RwvTag from "@/components/VTag.vue";
 import { FETCH_ARTICLE, FETCH_COMMENTS } from "@/store/actions.type";
 
 export default {
-  name: "rwv-article",
-  props: {
-    slug: {
-      type: String,
-      required: true
-    }
-  },
+  name: "RwvArticle",
   components: {
     RwvArticleMeta,
     RwvComment,
@@ -82,6 +76,12 @@ export default {
     ]).then(() => {
       next();
     });
+  },
+  props: {
+    slug: {
+      type: String,
+      required: true
+    }
   },
   computed: {
     ...mapGetters(["article", "currentUser", "comments", "isAuthenticated"])

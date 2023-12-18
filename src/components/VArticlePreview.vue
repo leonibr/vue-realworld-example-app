@@ -1,6 +1,6 @@
 <template>
   <div class="article-preview">
-    <RwvArticleMeta isPreview :article="article" />
+    <RwvArticleMeta is-preview :article="article" />
     <router-link :to="articleLink" class="preview-link">
       <h1 v-text="article.title" />
       <p v-text="article.description" />
@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import RwvArticleMeta from "./ArticleMeta";
-import TagList from "./TagList";
+import RwvArticleMeta from "./ArticleMeta.vue";
+import TagList from "./TagList.vue";
 
 export default {
   name: "RwvArticlePreview",

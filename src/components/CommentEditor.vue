@@ -4,8 +4,8 @@
     <form class="card comment-form" @submit.prevent="onSubmit(slug, comment)">
       <div class="card-block">
         <textarea
-          class="form-control"
           v-model="comment"
+          class="form-control"
           placeholder="Write a comment..."
           rows="3"
         >

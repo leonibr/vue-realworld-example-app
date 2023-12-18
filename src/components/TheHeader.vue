@@ -66,7 +66,7 @@
             <i class="ion-gear-a"></i>&nbsp;Settings
           </router-link>
         </li>
-        <li class="nav-item" v-if="currentUser.username">
+        <li v-if="currentUser.username" class="nav-item">
           <router-link
             class="nav-link"
             active-class="active"

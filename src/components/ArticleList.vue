@@ -9,19 +9,19 @@
 
       <RwvArticlePreview
         v-for="(article, index) in articles"
-        :article="article"
         :key="article.title + index"
+        :article="article"
       />
 
-      <VPagination :pages="pages" :currentPage.sync="currentPage" />
+      <VPagination v-model:currentPage="currentPage" :pages="pages" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import RwvArticlePreview from "./VArticlePreview";
-import VPagination from "./VPagination";
+import RwvArticlePreview from "./VArticlePreview.vue";
+import VPagination from "./VPagination.vue";
 import { FETCH_ARTICLES } from "../store/actions.type";
 export default {
   name: "RwvArticleList",

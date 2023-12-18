@@ -8,41 +8,41 @@
             <fieldset>
               <fieldset class="form-group">
                 <input
+                  v-model="currentUser.image"
                   class="form-control"
                   type="text"
-                  v-model="currentUser.image"
                   placeholder="URL of profile picture"
                 />
               </fieldset>
               <fieldset class="form-group">
                 <input
+                  v-model="currentUser.username"
                   class="form-control form-control-lg"
                   type="text"
-                  v-model="currentUser.username"
                   placeholder="Your username"
                 />
               </fieldset>
               <fieldset class="form-group">
                 <textarea
+                  v-model="currentUser.bio"
                   class="form-control form-control-lg"
                   rows="8"
-                  v-model="currentUser.bio"
                   placeholder="Short bio about you"
                 ></textarea>
               </fieldset>
               <fieldset class="form-group">
                 <input
+                  v-model="currentUser.email"
                   class="form-control form-control-lg"
                   type="text"
-                  v-model="currentUser.email"
                   placeholder="Email"
                 />
               </fieldset>
               <fieldset class="form-group">
                 <input
+                  v-model="currentUser.password"
                   class="form-control form-control-lg"
                   type="password"
-                  v-model="currentUser.password"
                   placeholder="Password"
                 />
               </fieldset>
@@ -53,7 +53,7 @@
           </form>
           <!-- Line break for logout button -->
           <hr />
-          <button @click="logout" class="btn btn-outline-danger">
+          <button class="btn btn-outline-danger" @click="logout">
             Or click here to logout.
           </button>
         </div>

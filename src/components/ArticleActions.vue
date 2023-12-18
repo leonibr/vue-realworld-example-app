@@ -18,8 +18,8 @@
     <span>&nbsp;&nbsp;</span>
     <button
       class="btn btn-sm"
-      @click="toggleFavorite"
       :class="toggleFavoriteButtonClasses"
+      @click="toggleFavorite"
     >
       <i class="ion-heart"></i> <span>&nbsp;</span>
       <span v-text="favoriteArticleLabel" /> <span>&nbsp;</span>

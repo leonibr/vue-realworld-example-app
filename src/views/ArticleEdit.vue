@@ -8,42 +8,42 @@
             <fieldset :disabled="inProgress">
               <fieldset class="form-group">
                 <input
+                  v-model="article.title"
                   type="text"
                   class="form-control form-control-lg"
-                  v-model="article.title"
                   placeholder="Article Title"
                 />
               </fieldset>
               <fieldset class="form-group">
                 <input
+                  v-model="article.description"
                   type="text"
                   class="form-control"
-                  v-model="article.description"
                   placeholder="What's this article about?"
                 />
               </fieldset>
               <fieldset class="form-group">
                 <textarea
+                  v-model="article.body"
                   class="form-control"
                   rows="8"
-                  v-model="article.body"
                   placeholder="Write your article (in markdown)"
                 >
                 </textarea>
               </fieldset>
               <fieldset class="form-group">
                 <input
+                  v-model="tagInput"
                   type="text"
                   class="form-control"
                   placeholder="Enter tags"
-                  v-model="tagInput"
                   @keypress.enter.prevent="addTag(tagInput)"
                 />
                 <div class="tag-list">
                   <span
-                    class="tag-default tag-pill"
                     v-for="(tag, index) of article.tagList"
                     :key="tag + index"
+                    class="tag-default tag-pill"
                   >
                     <i class="ion-close-round" @click="removeTag(tag)"> </i>
                     {{ tag }}
@@ -68,7 +68,7 @@
 <script>
 import { mapGetters } from "vuex";
 import store from "@/store";
-import RwvListErrors from "@/components/ListErrors";
+import RwvListErrors from "@/components/ListErrors.vue";
 import {
   ARTICLE_PUBLISH,
   ARTICLE_EDIT,
@@ -81,12 +81,6 @@ import {
 export default {
   name: "RwvArticleEdit",
   components: { RwvListErrors },
-  props: {
-    previousArticle: {
-      type: Object,
-      required: false
-    }
-  },
   async beforeRouteUpdate(to, from, next) {
     // Reset state if user goes from /editor/:id to /editor
     // The component is not recreated so we use to hook to reset the state.
@@ -109,6 +103,12 @@ export default {
   async beforeRouteLeave(to, from, next) {
     await store.dispatch(ARTICLE_RESET_STATE);
     next();
+  },
+  props: {
+    previousArticle: {
+      type: Object,
+      required: false
+    }
   },
   data() {
     return {

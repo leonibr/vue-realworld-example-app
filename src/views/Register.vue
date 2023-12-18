@@ -10,30 +10,32 @@
             </router-link>
           </p>
           <ul v-if="errors" class="error-messages">
-            <li v-for="(v, k) in errors" :key="k">{{ k }} {{ v | error }}</li>
+            <li v-for="(v, k) in errors" :key="k">
+              {{ k }} {{ filter.error(v) }}
+            </li>
           </ul>
           <form @submit.prevent="onSubmit">
             <fieldset class="form-group">
               <input
+                v-model="username"
                 class="form-control form-control-lg"
                 type="text"
-                v-model="username"
                 placeholder="Username"
               />
             </fieldset>
             <fieldset class="form-group">
               <input
+                v-model="email"
                 class="form-control form-control-lg"
                 type="text"
-                v-model="email"
                 placeholder="Email"
               />
             </fieldset>
             <fieldset class="form-group">
               <input
+                v-model="password"
                 class="form-control form-control-lg"
                 type="password"
-                v-model="password"
                 placeholder="Password"
               />
             </fieldset>
@@ -50,6 +52,7 @@
 <script>
 import { mapState } from "vuex";
 import { REGISTER } from "@/store/actions.type";
+import error from "@/common/error.filter";
 
 export default {
   name: "RwvRegister",
@@ -57,7 +60,10 @@ export default {
     return {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      filter: {
+        error
+      }
     };
   },
   computed: {
