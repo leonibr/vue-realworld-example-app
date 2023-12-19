@@ -12,16 +12,25 @@ const router = createRouter({
         {
           path: "",
           name: "home",
+          meta: {
+            theme: "bootstrap"
+          },
           component: () => import("@/views/HomeGlobal.vue")
         },
         {
           path: "my-feed",
           name: "home-my-feed",
+          meta: {
+            theme: "bootstrap"
+          },
           component: () => import("@/views/HomeMyFeed.vue")
         },
         {
           path: "tag/:tag",
           name: "home-tag",
+          meta: {
+            theme: "bootstrap"
+          },
           component: () => import("@/views/HomeTag.vue")
         }
       ]
@@ -45,16 +54,25 @@ const router = createRouter({
     {
       name: "login",
       path: "/login",
+      meta: {
+        theme: "bootstrap"
+      },
       component: () => import("@/views/Login.vue")
     },
     {
       name: "register",
       path: "/register",
+      meta: {
+        theme: "bootstrap"
+      },
       component: () => import("@/views/Register.vue")
     },
     {
       name: "settings",
       path: "/settings",
+      meta: {
+        theme: "bootstrap"
+      },
       component: () => import("@/views/Settings.vue")
     },
     // Handle child routes with a default, by giving the name to the
@@ -67,11 +85,17 @@ const router = createRouter({
         {
           path: "",
           name: "profile",
+          meta: {
+            theme: "bootstrap"
+          },
           component: () => import("@/views/ProfileArticles.vue")
         },
         {
           name: "profile-favorites",
           path: "favorites",
+          meta: {
+            theme: "bootstrap"
+          },
           component: () => import("@/views/ProfileFavorited.vue")
         }
       ]

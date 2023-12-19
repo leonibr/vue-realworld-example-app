@@ -1,24 +1,18 @@
 import { ref, watch } from "vue";
-import { configureCompat } from "@vue/compat";
 const theme = ref("bootstrap");
+const mode = ref(3);
 
 const setRootStyles = async (theme) => {
   let styles = "";
-  let mode = 3;
 
   if (theme.value === "bootstrap") {
+    mode.value = 2;
     styles = (await import("./bootstrap-theme")).default;
   } else {
+    mode.value = 3;
     styles = (await import("./vuetify-theme")).default;
   }
-
   document.querySelector("#vendor-css").innerHTML = styles;
-
-  configureCompat({
-    MODE: mode,
-    GLOBAL_EXTEND: true,
-    INSTANCE_LISTENERS: true
-  });
 };
 
 export default function useTheme() {

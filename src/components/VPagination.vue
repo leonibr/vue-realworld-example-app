@@ -18,6 +18,10 @@
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Pagination",
+  compatConfig: {
+    MODE: 2,
+    ATTR_FALSE_VALUE: false
+  },
   props: {
     pages: {
       type: Array,

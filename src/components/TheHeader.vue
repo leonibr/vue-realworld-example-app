@@ -6,12 +6,14 @@
       </router-link>
       <ul v-if="!isAuthenticated" class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
-          <router-link :to="{ name: 'bootstrap' }"
-            >Go to BootstapVue</router-link
+          <a class="nav-link" active-class="active" exact href="/bootstrap"
+            >Go to BootstapVue</a
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'vuetify' }">Go to Vuetify</router-link>
+          <a class="nav-link" active-class="active" exact href="/vuetify"
+            >Go to Vuetify</a
+          >
         </li>
         <li class="nav-item">
           <router-link
