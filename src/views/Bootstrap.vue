@@ -56,6 +56,10 @@
 
 <script>
 export default {
+  compatConfig: {
+    MODE: 2,
+    INSTANCE_LISTENERS: true
+  },
   name: "RwvBoostrap",
   data() {
     return {

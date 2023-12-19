@@ -23,26 +23,25 @@ const router = createRouter({
           path: "tag/:tag",
           name: "home-tag",
           component: () => import("@/views/HomeTag.vue")
-        },
-        {
-          path: "/bootstrap",
-          name: "bootstrap",
-          meta: {
-            theme: "bootstrap"
-          },
-          component: () => import("@/views/Bootstrap.vue")
-        },
-        {
-          path: "/vuetify",
-          name: "vuetify",
-          meta: {
-            theme: "vuetify"
-          },
-          component: () => import("@/views/Vuetify.vue")
         }
       ]
     },
-
+    {
+      path: "/bootstrap",
+      name: "bootstrap",
+      meta: {
+        theme: "bootstrap"
+      },
+      component: () => import("@/views/Bootstrap.vue")
+    },
+    {
+      path: "/vuetify",
+      name: "vuetify",
+      meta: {
+        theme: "vuetify"
+      },
+      component: () => import("@/views/Vuetify.vue")
+    },
     {
       name: "login",
       path: "/login",
@@ -93,6 +92,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  theme.value = to.meta.theme;
+  if (to.meta.theme) {
+    theme.value = to.meta.theme;
+    console.log({ to: theme });
+  }
 });
 export default router;

@@ -1,20 +1,21 @@
 <template>
   <v-sheet width="300" class="mx-auto">
     <v-form ref="form">
+      <v-text-field></v-text-field>
       <!-- <v-text-field
         v-model="name"
         :counter="10"
         :rules="nameRules"
         label="Name"
         required
-      ></v-text-field> -->
+      ></v-text-field>
       <v-select
         v-model="select"
         :items="items"
         :rules="[(v) => !!v || 'Item is required']"
         label="Item"
         required
-      ></v-select>
+      ></v-select>-->
       <!--
       <v-checkbox
         v-model="checkbox"
@@ -43,6 +44,10 @@
 <script>
 export default {
   name: "RwvVuetify",
+  compatConfig: {
+    MODE: 3,
+    COMPONENT_V_MODEL: false
+  },
   data: () => ({
     name: "",
     nameRules: [
